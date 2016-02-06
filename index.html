@@ -6,19 +6,9 @@
   <meta charset="UTF-8">
   <title>gci15.fossasia.org by fossasia</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=yes">
-  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
-  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
-  <link rel="stylesheet" type="text/css" href="stylesheets/ss.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/scroll.css" media="screen">
-  <link rel="stylesheet" type="text/css" href="stylesheets/hover.css" media="screen">
-  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
-  <link rel="stylesheet" type="text/css" href="stylesheets/component.css">
-  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<link rel="stylesheet" type="text/css" href="stylesheets/loklak.css">
 </head>
 <body>
+<a class="fork-github" href="https://github.com/fossasia/gci15.fossasia.org"><img style="position: absolute; top: 60px; z-index:99; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a>
   <!--Navbar-->
   <nav class="navbar navbar-default navbar-fixed-top">
     <div class="container">
@@ -36,14 +26,27 @@
         <img src="img/google-bkg.png">
       </a>
       <div id="navbar" class="collapse navbar-collapse">
-        <ul class="nav navbar-nav">
+        <ul class ="nav navbar-nav">
           <li><a href="#banner">Welcome</a></li>
           <li><a href="#mentors">Mentors</a></li>
           <li><a href="#students">Students</a></li>
-          <li><a href="#gallery">Gallery</a></li>
-          <li><a href="#contributors">Contributors</a></li>
-          <li><a href="#loklak">Loklak Peers</a></li>
-          <li><a href="#social_media">Social Media</a></li>
+          <li id="studproj"><a href="#">Student Projects &#x25BC;</a>
+          <ul id="projlist">
+            <li><a href="#blog_posts">Blog Posts</a></li>
+            <li><a href="#gallery">Gallery</a></li>
+            <li><a href="#loklak">Loklak Peers</a></li>
+            <li><a href="#loklak_search">Loklak Search</a></li>
+            <li><a href="#loklak_heatmap">Loklak Heatmap</a></li>
+            <li><a href="#student_games">Student Games</a></li>
+            <li><a href="#student_geolocation">Geolocation Projects</a></li>
+            <li><a href="#social_media">Social Media</a></li>
+            <li><a href="#lights_out">Lights out</a></li>
+            <li><a href="#issues">Github Issues</a>
+            <li><a href="#privly-stickers">Privly Stickers</a></li>
+          </ul>
+        </li>
+        <li><a href="#contributors">Contributors</a></li>
+        <li><a href="http://gci14.fossasia.org">GCI 2014</a></li>
         </ul>
       </div><!--/.nav-collapse -->
     </div>
@@ -117,7 +120,7 @@
         <div class="members mentors">
           <h1 class="section-h1"><span class="white-border">Mentors</span></h1>
           {% for mentor in site.data.mentors %}
-          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+          <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
             <div class="grid">
               <figure class="effect-duke">
                 {% if mentor.github %}
@@ -190,7 +193,7 @@
         <div class="members students">
           <h1 class="section-h1"><span class="white-border">Students</span></h1>
           {% for student in site.data.students %}
-          <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+          <div class="col-xs-4 col-sm-3 col-md-3 col-lg-2">
             <div class="grid">
               <figure class="effect-duke">
                 {% if student.github %}
@@ -228,7 +231,7 @@
                     {% endif %}
                   </div>
                   <div class="card-block">
-                    <h4 class="card-title">{{ student.name }}</h4>
+                    <h4 class="card-title overflow ellipsis">{{ student.name }}</h4>
                     <figcaption>
                       <div class="social">
                         <div class="icon-holder">
@@ -261,8 +264,16 @@
           {% endfor %}
         </div>
       </div>
+
+      <a class="anchor" name="blog_posts"></a>
+      <div class="blogs_wrapper"><li class="dime" id="dime">Loading...</li></div>
+
       <a class="anchor" name="gallery"></a>
-      <div class="container1">
+      <div class="container1 projects">
+          <div class="nav-arrows">
+            <div class="left-arrow" id="left-arrow1">&#8249;</div>
+            <div class="right-arrow"  id="right-arrow1">&#8250;</div>
+          </div>
         <section id="photostack-1" class="photostack photostack-start">
           <div>
             <figure>
@@ -273,24 +284,10 @@
               </figcaption>
             </figure>
             <figure>
-              <img src="img/gallery/Treasurehunt.png" alt="img02" height="240" width="240">
-              <figcaption>
-                <h2 class="photostack-title">Treasure Hunt</h2>
-                <h3>Juan F. Verhook</h3>
-              </figcaption>
-            </figure>
-            <figure>
               <img src="img/gallery/apache.png" alt="img03" height="240" width="240">
               <figcaption>
                 <h2 class="photostack-title"><a href="https://github.com/Yathannsh/PHP_APP" target="_blank" target="_blank" >Configuring Apache with PHP</a></h2>
                 <h3>Yathannsh Kulshrestha</h3>
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="img/gallery/geolocation.png" alt="img04" height="240" width="240">
-              <figcaption>
-                <h2 class="photostack-title"><a href="https://github.com/codethejason/gcismallprojects2015/tree/master/geolocation/" target="_blank">Geolocation Website</a></h2>
-                <h3>Jason Wong</h3>
               </figcaption>
             </figure>
             <figure>
@@ -314,6 +311,43 @@
                 <h3>Oana Rosca</h3>
               </figcaption>
             </figure>
+
+            <figure>
+              <img src="img/gallery/LatLonDistance_mborsch.png" alt="img07" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title"><a href="https://jsfiddle.net/MBorsch/7j1x00ed/" target="_blank">Geolocation and Distance</a></h2>
+                <h3>Max B.</h3>
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="img/gallery/WorldDistCalc_mborsch.png" alt="img07" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title"><a href="https://jsfiddle.net/MBorsch/tgjjpgmd/" target="_blank">World Distance Calculator</a></h2>
+                <h3>Max B.</h3>
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="img/gallery/PostalLocate_mborsch.png" alt="img07" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title"><a href="https://jsfiddle.net/MBorsch/gpbdy8u3/" target="_blank">Postal Code Locator</a></h2>
+                <h3>Max B.</h3>
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="img/gallery/LightsOut_mborsch.png" alt="img07" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title"><a href="http://maxborsch.github.io/Lights-Out/" target="_blank">Lights Out!</a></h2>
+                <h3>Max B.</h3>
+              </figcaption>
+            </figure>
+            <figure>
+              <img src="img/gallery/MetadataViewer_mborsch.png" alt="img07" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title">Metadata Viewer</h2>
+                <h3>Max B.</h3>
+              </figcaption>
+            </figure>
+
             <figure>
               <img src="img/gallery/libreoffice.png" alt="img08" height="240" width="240" >
               <figcaption>
@@ -324,15 +358,15 @@
             <figure>
               <img src="img/gallery/lightsout.png" alt="img09" height="240" width="240">
               <figcaption>
-                <h2 class="photostack-title"><a href="https://github.com/codethejason/gcismallprojects2015/tree/master/lightsout/" target="_blank">Lights Out</a></h2>
+                <h2 class="photostack-title"><a href="https://github.com/codethejason/gci2015/tree/master/lightsout/" target="_blank">Lights Out</a></h2>
                 <h3>Jason Wong</h3>
               </figcaption>
             </figure>
             <figure>
-              <img src="img/gallery/hangman1.png" alt="img10" height="240" width="240">
+              <img src="img/gallery/smart.PNG" alt="Smart Cities" height="240" width="240">
               <figcaption>
-                <h2 class="photostack-title"><a href="https://github.com/oanarosca/hangman/tree/gh-pages" target="_blank">Hangman</a></h2>
-                <h3>Oana Rosca</h3>
+                <h2 class="photostack-title">What are smart cities?</h2>
+                <h3>Sumedh Supe</h3>
               </figcaption>
             </figure>
             <figure>
@@ -340,13 +374,6 @@
               <figcaption>
                 <h2 class="photostack-title"><a href="http://gciopensource.blogspot.ro/" target="_blank">Blog about Open Source</a></h2>
                 <h3>Selina Feng</h3>
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="img/gallery/hangman2.png" alt="img12" height="240" width="240">
-              <figcaption>
-                <h2 class="photostack-title"><a href="https://github.com/codethejason/gcismallprojects2015/tree/master/hangman/" target="_blank">Hangman</a></h2>
-                <h3>Jason Wong</h3>
               </figcaption>
             </figure>
             <figure>
@@ -368,13 +395,6 @@
               <figcaption>
                 <h2 class="photostack-title"><a href="https://phpapache.herokuapp.com" target="_blank">Git Tutorial</a></h2>
                 <h3>Neeraj Pandey</h3>
-              </figcaption>
-            </figure>
-            <figure>
-              <img src="img/gallery/checkers.png" alt="img16" height="240" width="240">
-              <figcaption>
-                <h2 class="photostack-title"><a href="http://github.com/codethejason/checkers" target="_blank">Checkers</a></h2>
-                <h3>Jason Wong</h3>
               </figcaption>
             </figure>
             <figure>
@@ -427,22 +447,794 @@
               </figcaption>
             </figure>
             <figure>
-              <img src="img/gallery/locate.png" alt="img24" height="240" width="240">
-              <figcaption>
-                <h2 class="photostack-title"><a href="https://github.com/Yathannsh/locateme.git" target="_blank">Locator</a></h2>
-                <h3>Yathannsh Kulshrestha</h3>
-              </figcaption>
-            </figure>
-            <figure>
               <img src="img/gallery/search.png" alt="img25" height="240" width="240">
               <figcaption>
                 <h2 class="photostack-title"><a href="http://loklak.org/apps/yasoob/" target="_blank">Loklak Search</a></h2>
                 <h3>M.Yasoob Ullah Khalid</h3>
               </figcaption>
             </figure>
+            <figure>
+              <img src="img/gallery/manager.png" alt="img28" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title"><a href="http://juanvhook.pythonanywhere.com/events/" target="_blank">Fossasia Event Manager!</a></h2>
+                <h3>Juan F. Verhook</h3>
+              </figcaption>
+           </figure>
+           <figure>
+             <img src="img/gallery/githuboauth.png" alt="img29" height="240" width="240">
+             <figcaption>
+               <h2 class="photostack-title"><a href="https://github.com/YagoGG/GCI2015/tree/gh-pages/Node.js%20GitHub%20OAuth" target="_blank">Node.js GitHub OAuth</a></h2>
+               <h3>Yago González</h3>
+             </figcaption>
+          </figure>
+           <figure>
+            <img src="img/gallery/loklakcowstl1.PNG" alt="Loklak cow in 3D" height="240" width="240">
+            <figcaption>
+              <h2 class="photostack-title">3D Loklak 'Crazy Cow'</h2>
+              <h3>Sumedh Supe</h3>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="img/gallery/loklakposter.png" alt="img31" height="240" width="240">
+            <figcaption>
+              <h2 class="photostack-title">Loklak Poster</h2>
+              <h3>Sayan Chaudhry</h3>
+            </figcaption>
+          </figure>
+		      <figure>
+            <img src="img/gallery/fix.png" alt="img32" height="240" width="240">
+            <figcaption>
+              <h2 class="photostack-title"><a href="http://nolik2000.github.io." target="_blank">My first site</a></h2>
+              <h3>Nastya Kostiv</h3>
+            </figcaption>
+          </figure>
+            <figure>
+              <img src="img/gallery/quiz.png" alt="img23" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title"><a href="https://github.com/zakomon/fossquiz" target="_blank">FOSS QUIZ</a></h2>
+                <h3>Rahul Narayanan</h3>
+              </figcaption>
+            </figure>
+              <figure>
+              <img src="img/gallery/phpapp.png" alt="img24" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title"><a href="https://github.com/Elgayar/php-app" target="_blank">PHP APP</a></h2>
+                <h3>Mostafa Elgayar</h3>
+              </figcaption>
+            </figure>
+          <figure>
+            <img src="img/gallery/Distance-Finder.png" alt="img69" height="240" width="240">
+            <figcaption>
+              <h2 class="photostack-title"><a href="https://github.com/9at8/Distance-Finder" target="_blank">Distance Finder</a></h2>
+              <h3>Aditya Thakral</h3>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="img/gallery/myapp-abishek.jpg" alt="Abi" height="240" width="240">
+            <figcaption>
+              <h2 class="photostack-title"><a href="https://github.com/Abhi2424shek/Abishek-Android-App" target="_blank">My Android App</a></h2>
+              <h3>Abishek V Ashok</h3>
+            </figcaption>
+          </figure>
+          <figure>
+            <img src="img/gallery/filemetadataanshuman73.png" alt="anshuman73" height="240" width="240">
+            <figcaption>
+              <h2 class="photostack-title"><a href="http://anshuman73.hol.es/FileMetadata/" target="_blank">File Metadata</a></h2>
+              <h3>Anshuman Agarwal</h3>
+            </figcaption>
+          </figure>
+           <figure>
+              <img src="img/gallery/phpform.png" alt="imgphp" height="240" width="240">
+              <figcaption>
+                <h2 class="photostack-title"><a href="https://github.com/nicholascheow/phpformgci" target="_blank" target="_blank" >A PHP form app hosted on apache and PHP server</a></h2>
+                <h3>Nicholas Cheow</h3>
+              </figcaption>
+            </figure>
+          <!--Don't forget to update the gallery.yml file!-->
           </div>
         </section>
       </div>
+      <a class="anchor" name="loklak" id="loklak"></a>
+      <div class=" loklak-wrapper" align="center">
+        <h1 class="section-h1"><span class="white-border">Loklak Peers</span></h1>
+        <table id="loklak_table"   class=" table table-responsive  table-condensed">
+          <tr>
+            <th>IP Address</th>
+            <th>Last Time Peer was Active</th>
+            <th>IP Address</th>
+            <th>Last Time Peer was Active</th>
+          </tr>
+        </table>
+      </div>
+
+      <a class="anchor" name="loklak-search" id="loklak_search"></a>
+      <div class="loklak_search-wrapper loklak-wrapper" ng-app="Twitter" ng-controller="TwitterCtrl" align="center">
+        <h1 class="section-h1"><span class="white-border">Loklak Search</span></h1>
+        <form class="form-wrapper cf">
+            <input type="text"  id="loklakSearchInput" ng-model="searchTerm" placeholder="Search Tweets" required>
+            <button type="submit" id="loklakSearchSubmit" ng-click="doSearch()" >Search</button>
+        </form>
+        <svg id="spinner" width="65px" height="65px" viewBox="0 0 66 66" xmlns="http://www.w3.org/2000/svg">
+          <g>
+            <animateTransform attributeName="transform" type="rotate" values="0 33 33;270 33 33" begin="0s" dur="1.4s" fill="freeze" repeatCount="indefinite"/>
+            <circle fill="none" stroke-width="6" stroke-linecap="round" cx="33" cy="33" r="30" stroke-dasharray="187" stroke-dashoffset="610">
+              <animate attributeName="stroke" values="#4285F4;#DE3E35;#F7C223;#1B9A59;#4285F4" begin="0s" dur="5.6s" fill="freeze" repeatCount="indefinite"/>
+              <animateTransform attributeName="transform" type="rotate" values="0 33 33;135 33 33;450 33 33" begin="0s" dur="1.4s" fill="freeze" repeatCount="indefinite"/>
+              <animate attributeName="stroke-dashoffset" values="187;46.75;187" begin="0s" dur="1.4s" fill="freeze" repeatCount="indefinite"/>
+            </circle>
+           </g>
+        </svg>
+        <table class="table table-striped" id="loklakSearchTable">
+        <tr ng-repeat="tweet in twitterResult.statuses">
+            <td ng-bind-html-unsafe="tweet.text"></td>
+        </tr>
+    </table>
+      </div>
+
+      <a class="anchor" name="loklak-heatmap" id="loklak_heatmap"></a>
+      <div class="loklak_heatmap-wrapper loklak-wrapper" align="center">
+        <h1 class="section-h1"><span class="white-border">Loklak Tweet Heatmap</span></h1>
+        <div id="heatmap">
+          <object type="text/html" data="http://loklak-heatmap.herokuapp.com" width="100%" height="700px"></object>
+        </div>
+      </div>
+      <a class="anchor" name="student_games"></a>
+      <div class="student_geolocation student_games">
+          <h1 class="section-h1"><span class="white-border">Student Games</span></h1>
+          <div class="container">
+            <section>
+              <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="http://github.com/codethejason/checkers">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/checkers.png" alt="Jason-wong">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="http://github.com/codethejason/checkers">
+                      <h4 class="card-title">Checkers</h4>
+                      <h4 class="card-title">Jason Wong</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://github.com/codethejason/gcismallprojects2015/tree/master/hangman/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/hangman2.png" data="img/gallery/hangman2.png" alt="Jason-wong">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/codethejason/gcismallprojects2015/tree/master/hangman/">
+                      <h4 class="card-title">Hangman</h4>
+                      <h4 class="card-title">Jason Wong</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://yasoob.me/hangman">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/hangman.png" data="img/gallery/hangman.png" alt="yasoob-khalid">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://yasoob.me/hangman">
+                      <h4 class="card-title">Hangman!</h4>
+                      <h4 class="card-title">M.Yasoob Ullah Khalid</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://github.com/oanarosca/hangman/tree/gh-pages">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/hangman1.png" data="img/gallery/hangman1.png" alt="oanarosca">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/oanarosca/hangman/tree/gh-pages">
+                      <h4 class="card-title">Hangman</h4>
+                      <h4 class="card-subtitle">Oana Rosca</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://github.com/Juanvulcano/GCI/tree/master/Fossasia/Week3">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/Treasurehunt.png" data="img/gallery/Treasurehunt.png" alt="Juanvulcano">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/Juanvulcano/GCI/tree/master/Fossasia/Week3">
+                      <h4 class="card-title">Treasure Hunt</h4>
+                      <h4 class="card-title">Juan F. Verhook</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://yasoob.me/checkers">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/checkers1.png" data="img/gallery/checkers1.png" alt="yasoob-khalid">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://yasoob.me/checkers">
+                      <h4 class="card-title">Checkers!</h4>
+                      <h4 class="card-subtitle">M.Yasoob Ullah Khalid</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="http://fossasia.github.io/flappy-svg/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/Flappy-SVG-icon.svg" data="img/gallery/Flappy-SVG-icon.svg" alt="Flappy SVG">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="http://fossasia.github.io/flappy-svg/">
+                      <h4 class="card-title">Flappy SVG</h4>
+                      <h4 class="card-subtitle"></h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://github.com/Raheel102/Checkers/tree/master/Raheel102.github.io-68296e0421edc754fe9d7b03ae5e17b6c7d92dff">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/checkers2.png" data="img/gallery/checkers2.png" alt="yasoob-khalid">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/Raheel102/Checkers/tree/master/Raheel102.github.io-68296e0421edc754fe9d7b03ae5e17b6c7d92dff">
+                      <h4 class="card-title">Checkers</h4>
+                      <h4 class="card-subtitle">Raheel Saghir</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://github.com/Baidya99/GciHangman/tree/master">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/hm.PNG" data="img/gallery/hm.PNG" alt="hangman">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/Baidya99/GciHangman/tree/master">
+                      <h4 class="card-title">HangMan</h4>
+                      <h4 class="card-subtitle">Baidyanath Kundu</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://github.com/Baidya99/FOSSquiz/tree/master">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/JQ.PNG" data="img/gallery/JQ.PNG" alt="hangman">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/Baidya99/FOSSquiz/tree/master">
+                      <h4 class="card-title">JAVA FOSS Quiz</h4>
+                      <h4 class="card-subtitle">Baidyanath Kundu</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-3 col-lg-2">
+                  <div class="card">
+                    <a href="https://github.com/xssc/gci-hangman/tree/master">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/hangmanc.png" data="img/gallery/hangmanc.png">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/xssc/gci-hangman/tree/master">
+                      <h4 class="card-title">Hangman</h4>
+                      <h4 class="card-subtitle">Sawyer Charles</h4>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+      </div>
+      <a class="anchor" name="student_geolocation"></a>
+      <div class="student_geolocation">
+          <h1 class="section-h1"><span class="white-border">Geolocation Projects</span></h1>
+          <div class="container">
+            <section>
+              <div class="row">
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="https://github.com/codethejason/gci2015/tree/master/geolocation/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/geolocation.png" alt="codethejason">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/codethejason/gci2015/tree/master/geolocation/">
+                      <h4 class="card-title">Geolocation by Browser</h4>
+                      <h4 class="card-title">Jason Wong</h4>
+                    </a>
+                  </div>
+                </div>
+                
+                
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="https://github.com/codethejason/gci2015/tree/master/openstreetmappostalcode/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/geolocationzipjason.png" alt="codethejason">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/codethejason/gci2015/tree/master/openstreetmappostalcode/">
+                      <h4 class="card-title">Geolocation by Zip Code</h4>
+                      <h4 class="card-title">Jason Wong</h4>
+                    </a>
+                  </div>
+                </div>
+                
+                
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="https://github.com/Yathannsh/locateme.git">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/locate.png" alt="shashank-sharma">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/Yathannsh/locateme.git">
+                      <h4 class="card-title">Locator</h4>
+                      <h4 class="card-title">Yathannsh Kulshrestha</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="https://poprosturonin.github.io/postalCodeGeolocation/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/geolocationpostalcode.png" alt="shashank-sharma">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://poprosturonin.github.io/postalCodeGeolocation/">
+                      <h4 class="card-title">Geolocation by postal code</h4>
+                      <h4 class="card-title">Bartosz Wiśniewski</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="http://jammurz.github.io/GetCoords/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/jamgetcoords.png" alt="shashank-sharma">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="http://jammurz.github.io/GetCoords/">
+                      <h4 class="card-title">Get Coordinates</h4>
+                      <h4 class="card-subtitle">John Murzaku</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="https://jsfiddle.net/MBorsch/gpbdy8u3/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/PostalLocate_mborsch.png" alt="Max B.">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="#Max B.">
+                      <h4 class="card-title">Postal Code Locator</h4>
+                      <h4 class="card-subtitle">Max B.</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="https://jsfiddle.net/MBorsch/7j1x00ed/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/LatLonDistance_mborsch.png" alt="Max B.">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="#Max B.">
+                      <h4 class="card-title">Geolocation & Distance</h4>
+                      <h4 class="card-subtitle">Max B.</h4>
+                    </a>
+                  </div>
+                </div>
+
+
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="http://abhi2424shek.github.io/pinlocator.html/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/pinlocator-abishek.jpg" data="img/gallery/pinlocator-abishek.jpg" alt="Abi">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="http://abhi2424shek.github.io/pinlocator.html/">
+                      <h4 class="card-title">Pinlocator</h4>
+                      <h4 class="card-subtitle">Abishek V Ashok</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="http://abhi2424shek.github.io/geolocator.html">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="img/gallery/geolocator-abishek.jpg" data="img/gallery/geolocator-abishek.jpg" alt="Abi">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="http://abhi2424shek.github.io/geolocator.html">
+                      <h4 class="card-title">Geolocator</h4>
+                      <h4 class="card-subtitle">Abishek V Ashok</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="http://anshuman73.hol.es/BrowserGeolocation/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/geolocationanshuman73.png" alt="anshuman73">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/anshuman73/GCI-2015/tree/master/Geolocation%20Browser">
+                      <h4 class="card-title">Geolocation from Browser</h4>
+                    </a>
+                    <a href="http://anshuman73.github.io">
+                      <h4 class="card-title">Anshuman Agarwal</h4>
+                    </a>
+                  </div>
+                </div>
+                <div class="col-xs-4 col-sm-4 col-md-4 col-lg-3">
+                  <div class="card">
+                    <a href="http://anshuman73.hol.es/NominatimOSM/">
+                      <div class="avatar img-circle">
+                        <img class="card-img-top" src="" data="img/gallery/postalcodeanshuman73.png" alt="anshuman73">
+                      </div>
+                    </a>
+                  </div>
+                  <div class="card-block">
+                    <a href="https://github.com/anshuman73/GCI-2015/tree/master/OpenStreet%20Postal%20Code">
+                      <h4 class="card-title">Geolocation by Postal Code</h4>
+                    </a>
+                    <a href="http://anshuman73.github.io">
+                      <h4 class="card-title">Anshuman Agarwal</h4>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+      </div>
+
+      <a class="anchor" name="lights_out"></a>
+      <div class="lightsout-wrapper" id ="lightsout">
+
+        <div class="container">
+          <div class="row">
+            <div class="col-xs-6 col-xs-4">
+            </div>
+            <div class="col-xs-6 col-xs-4">
+              <h1 class="section-h1">
+                <span class = "white-border" style = "text-align:center">Lights Out</span>
+              </h1>
+            </div>
+            <div class="col-xs-6 col-xs-4">
+                  <div class="onoffswitch">
+                      <input type="checkbox" name="onoffswitch" class="onoffswitch-checkbox" id="myonoffswitch" checked>
+                      <label class="onoffswitch-label" for="myonoffswitch">
+                        <span class="onoffswitch-inner"></span>
+                        <span class="onoffswitch-switch"></span>
+                      </label>
+                    </div>
+            </div>
+          </div>
+          </div>
+
+              <div class="container">
+                <section>
+                  <div class="row">
+                    <div class="col-xs-3">
+                      <div class="card">
+                          <div class="avatar img-circle">
+                            <a href="http://codethejason.github.io/gci2015/lightsout/index.html">
+                            <img class="card-img-top" src="img/gallery/lightsout.png">
+                          </a>
+                          </div>
+                      </div>
+                      <div class="card-block">
+                          <h4 class="card-title">by Jason Wong</h4>
+                          <h4 class = "card-subtitle"><a href="http://codethejason.github.io/gci2015/lightsout/index.html">Github</a></h4>
+                      </div>
+                    </div>
+
+                    <div class="col-xs-3">
+                      <div class="card">
+                          <div class="avatar img-circle">
+                            <a href="http://oanarosca.github.io/lights-out/">
+                            <img class="card-img-top" src="img/gallery/lights-out.png">
+                            </a>
+                          </div>
+                      </div>
+                      <div class="card-block">
+                          <h4 class="card-title">by Oana Rosca</h4>
+                          <h4 class = "card-subtitle"><a href="https://github.com/oanarosca/lights-out">Github</a></h4>
+                      </div>
+                    </div>
+            <div class="col-xs-3">
+              <div class="card">
+                <div class="avatar img-circle">
+                  <a href="http://delta949.github.io/">
+                    <img class="card-img-top" src="img/gallery/lightsoutdea.png">
+                  </a>
+                  </div>
+                </div>
+                <div class="card-block">
+                  <h4 class="card-title">by Dea Chintia</h4>
+                    <h4 class = "card-subtitle"><a href="https://github.com/Delta949/delta949.github.io">Github</a></h4>
+                </div>
+              </div>
+            <div class="col-xs-3">
+              <div class="card">
+                  <div class="avatar img-circle">
+                    <a href="http://ducphanduyagentp.github.io/ptnega-light/">
+                    <img class="card-img-top" src="img/gallery/lightsoutduc.png">
+                  </a>
+                  </div>
+              </div>
+              <div class="card-block">
+                  <h4 class="card-title">by Duc Phan Duy</h4>
+                  <h4 class = "card-subtitle"><a href="https://github.com/ducphanduyagentp/ptnega-light">Github</a></h4>
+              </div>
+            </div>
+        </div>
+          <div class = "row">
+            <div class="col-xs-3">
+              <div class="card">
+                  <div class="avatar img-circle">
+                    <a href="http://s-ulphuric.github.io/git-lights-out/">
+                    <img class="card-img-top" src="img/gallery/lightsoutaditya.png">
+                  </a>
+                  </div>
+              </div>
+              <div class="card-block">
+                  <h4 class="card-title">by Aditya Singh</h4>
+                  <h4 class = "card-subtitle"><a href="https://github.com/s-ulphuric/git-lights-out/">Github</a></h4>
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <div class="card">
+                  <div class="avatar img-circle">
+                    <a href="https://pages.choy.in/GCI2015/">
+                    <img class="card-img-top" src="img/gallery/lightsoutyong.png">
+                  </a>
+                  </div>
+              </div>
+              <div class="card-block">
+                  <h4 class="card-title">by Yong Cho Yin</h4>
+                  <h4 class = "card-subtitle"><a href="https://github.com/hkminegod/GCI2015/tree/master/javascript">Github</a></h4>
+              </div>
+            </div>
+
+            <div class="col-xs-3">
+              <div class="card">
+                  <div class="avatar img-circle">
+                    <a href="http://jleow00.github.io/Lights-Out/">
+                    <img class="card-img-top" src="img/gallery/lightsoutjeromel.png">
+                    </a>
+                  </div>
+              </div>
+              <div class="card-block">
+                  <h4 class="card-title">by Jerome Leow</h4>
+                  <h4 class = "card-subtitle"><a href="https://github.com/jleow00/Lights-Out/">Github</a></h4>
+              </div>
+            </div>
+
+          <div class="col-xs-3">
+            <div class="card">
+                <div class="avatar img-circle">
+                  <a href="http://srv.seadog007.me/Light-Adv/Web/">
+                  <img class="card-img-top" src="img/gallery/lightsoutseadog.png">
+                </a>
+                </div>
+            </div>
+            <div class="card-block">
+                <h4 class="card-title">by Jasper Yu</h4>
+                <h4 class = "card-subtitle"><a href="https://github.com/seadog007/Light-Adv">Github</a></h4>
+            </div>
+          </div>
+        </div>
+        <div class = "row">
+        <div class = "col-xs-3">
+          <div class = "card">
+          <div class="avatar img-circle">
+            <a href="http://s.codepen.io/LeungEnterprises/debug/MKjQMe">
+            <img class="card-img-top" src="img/gallery/lightsoutleung.png">
+          </a>
+          </div>
+      </div>
+      <div class="card-block">
+          <h4 class="card-title">by Leung Enterprises</h4>
+          <h4 class = "card-subtitle"><a href="http://s.codepen.io/LeungEnterprises/debug/MKjQMe">Github</a></h4>
+      </div>
+    </div>
+
+    <div class = "col-xs-3">
+      <div class = "card">
+      <div class="avatar img-circle">
+        <a href="http://raheel102.github.io/lightbulb.html">
+        <img class="card-img-top" src="img/gallery/lightsoutraheel.png">
+      </a>
+      </div>
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">by Raheel Saghir</h4>
+      <h4 class = "card-subtitle"><a href="https://github.com/fossasia/fossasia-gci15/tree/master/%5BLights_out%5D_%5BRaheel_Saghir%5D">Github</a></h4>
+    </div>
+    </div>
+
+	 <div class = "col-xs-3">
+      <div class = "card">
+      <div class="avatar img-circle">
+        <a href="http://nolik2000.github.io/light.com/">
+        <img class="card-img-top" src="img/gallery/lamp.jpg">
+      </a>
+      </div>
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">by Nastya Kostiv</h4>
+      <h4 class = "card-subtitle"><a href="https://github.com/nolik2000/light.com">Github</a></h4>
+    </div>
+    </div>
+
+    <div class = "col-xs-3">
+      <div class = "card">
+      <div class="avatar img-circle">
+        <a href="http://maxborsch.github.io/Lights-Out/">
+        <img class="card-img-top" src="img/gallery/LightsOut_mborsch.png">
+      </a>
+      </div>
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">by Max B.</h4>
+      <h4 class = "card-subtitle"><a href="http://maxborsch.github.io/Lights-Out/">Github</a></h4>
+    </div>
+    </div>
+  </div>
+  <div class ="row">
+    <div class = "col-xs-3">
+      <div class = "card">
+      <div class="avatar img-circle">
+        <a href="http://awaykened.github.io/lights_out">
+        <img class="card-img-top" src="img/gallery/lightsoutweiwei.png">
+      </a>
+      </div>
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">by Weiwei Zhong</h4>
+      <h4 class = "card-subtitle"><a href="https://github.com/awaykened/awaykened.github.io">Github</a></h4>
+    </div>
+    </div>
+
+        <div class = "col-xs-3">
+      <div class = "card">
+      <div class="avatar img-circle">
+        <a href="http://elgayar.github.io">
+        <img class="card-img-top" src="img/gallery/jslightsout.png">
+      </a>
+      </div>
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">by Mostafa Elgayar</h4>
+      <h4 class = "card-subtitle"><a href="https://github.com/Elgayar/elgayar.github.io">Github</a></h4>
+    </div>
+    </div>
+
+    <div class = "col-xs-3">
+      <div class = "card">
+      <div class="avatar img-circle">
+        <a href="http://anshuman73.hol.es/lightsout">
+        <img class="card-img-top" src="img/gallery/lightsoutanshuman73.png">
+      </a>
+      </div>
+    </div>
+    <div class="card-block">
+      <h4 class="card-title">by Anshuman Agarwal</h4>
+      <h4 class = "card-subtitle"><a href="https://github.com/anshuman73/GCI-2015/tree/master/Lights%20Out">Github</a></h4>
+    </div>
+    </div>
+
+    </div>
+    </section>
+    </div>
+    </div>
+    <a class="anchor" name="issues"></a>
+    <div id="contentem" class="blogs_wrapper">
+      <h2 class="section-h1" id="jigsaw"><span class="white-border">Github Issues</span></h2>
+      <div id="contentres"></div>
+    </div>
+ 	 <a class="anchor" name="privly-stickers"></a>
+      <div class="privly-wrapper">
+      <h1 class="section-h1"><span class="white-border">Privly-Stickers</span></h1>
+    <section id="portfolio" class="clear bounce-in">
+        <div class="containerContent">
+        <div class="set_size_section1">
+            <div class="folio-list">
+            <!--Add your Privly stickers here-->
+                    <div class="thumbnail folio-thumb">
+                        <figure class="gallery-item">
+                            <img alt="logo1" src="https://raw.githubusercontent.com/fossasia/gci15.fossasia.org/gh-pages/img/privly/samplesticker.png" >
+                            <figcaption class="img-title">
+                                <h4>View on Github <a href="https://github.com/fossasia/gci15.fossasia.org/blob/gh-pages/img/privly/samplesticker.png"><i id="github" class="icon-github"></i></a></h4>
+                            </figcaption>
+                        </figure>
+                        <h3>Made by Privly</h3>
+                    </div>
+                    <div class="thumbnail folio-thumb">
+                        <figure class="gallery-item">
+                            <img alt="Sticker" src="img/privly/sumedh.PNG" >
+                            <figcaption class="img-title">
+                                <h4>Sumedh Supe <a href="https://github.com/sumsupee"><i id="github" class="icon-github"></i></a></h4>
+                            </figcaption>
+                        </figure>
+                        <h3>Made by Sumedh Supe</h3>
+                    </div>
+                    <div class="thumbnail folio-thumb">
+                        <figure class="gallery-item">
+                            <img alt="Sticker" src="img/privly/PRIVLYshirtlowres.jpg" >
+                            <figcaption class="img-title">
+                                <h4>Naveen Balachandran <a href="https://github.com/naveenbalachandran"><i id="github" class="icon-github"></i></a></h4>
+                            </figcaption>
+                        </figure>
+                        <h3>Made by N. Balachandran</h3>
+                    </div>
+                    <div class="thumbnail folio-thumb">
+                        <figure class="gallery-item">
+                            <img alt="Sticker" src="img/privly/ciucur-daniel_PrivlySticker.png" >
+                            <figcaption class="img-title">
+                                <h4>Ciucur Daniel <a href="https://github.com/ciucur-daniel"><i id="github" class="icon-github"></i></a></h4>
+                            </figcaption>
+                        </figure>
+                        <h3>Made by Ciucur Daniel</h3>
+                    </div>
+            </div>
+        </div>
+        </div>
+    </section>
+  	 </div>
       <a class="anchor" name="contributors" id="contributors"></a>
       <div class="row contributors-wrapper">
         <div class="members contributers">
@@ -452,23 +1244,7 @@
       <div class="row thanku-wrapper text-scroll scrolling-words otto" align="center" >
         <p id="changingword">Thank you for contributing!</p>
       </div>
-      <a class="anchor" name="loklak" id="loklak"></a>
-      <div class="row loklak-wrapper" align="center">
-        <div class="members loklak_peers">
-        <h1 class="section-h1"><span class="white-border">Loklak Peers</span></h1>
-        <table id="loklak_table" align="center"  class="table table-condensed">
-          <tr id="endrow">
-            <th>IP Address</th>
-            <th>Last Seen</th>
-            <th>IP Address</th>
-            <th>Last Seen</th>
-          </tr>
-        </table>
-        </div>
-      </div>
-
       <a class="anchor" name="social_media"></a>
-      <div class="social_media">
         <br>
         <h2 class="section-h1"><span class="white-border">Social Media</span></h2>
         <div class="row">
@@ -501,35 +1277,23 @@
             </div>
           </div>
         </div>
-      </div>
     </div>
-  </div>
-</div>
 </section>
-<footer>
-  <div class="container">
-    <div class="row">
-      <div class="col-md-4 links">
-        <h3>Other Links</h3>
-        <ul>
-          <li><a href="http://fossasia.org/" target="_blank">Main Site</a></li>
-          <li><a href="http://2016.fossasia.org/" target="_blank">FOSSASIA 2016</a></li>
-          <li><a href="https://codein.withgoogle.com/organizations/fossasia/" target="_blank">GCI Page</a></li>
-          <li><a href="http://blog.fossasia.org/events" target="_blank">Events</a></li> <li><a href="https://en.wikipedia.org/wiki/FOSSASIA" target="_blank">Wiki</a></li>
-          <li><a href="http://blog.fossasia.org/" targer="_blank">Blog</a><li>
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-md-2 col-sm-3 links">
+          <h3>Other Links</h3>
+          <ul>
+            <li><a href="http://fossasia.org/" target="_blank">Main Site</a></li>
+            <li><a href="http://2016.fossasia.org/" target="_blank">FOSSASIA 2016</a></li>
+            <li><a href="https://codein.withgoogle.com/organizations/fossasia/" target="_blank">GCI Page</a></li>
+            <li><a href="http://blog.fossasia.org/events" target="_blank">Events</a></li> <li><a href="https://en.wikipedia.org/wiki/FOSSASIA" target="_blank">Wiki</a></li>
+            <li><a href="http://blog.fossasia.org/" targer="_blank">Blog</a><li>
             <li><a href="#">Back to Top</a></li>
           </ul>
         </div>
-        <div class="col-md-6 blurb">
-          <h3>About FOSSASIA</h3>
-          <p>
-            FOSSASIA is an open source technology organization in Asia that aims to bring together an inspiring community across borders and ages to form a better future with Open Technologies and ICT.
-          </p>
-          <p>
-            FOSSASIA is involved in Google Code-in, which serves as a great introduction to the world of open source collaboration and an excellent mediator to involve the next generation of digital collaborators.
-          </p>
-        </div>
-        <div class="col-centered col-md-2 col-xs-12 col-md-offset-0 col-xs-offset-1 col-sm-12 col-sm-offset-2">
+        <div class="col-centered col-md-2 col-xs-12 col-md-offset-0 col-xs-offset-1 col-sm-3 col-sm-offset-0">
           <div class="social-media-container">
             <div class="facebook icon"><a href="https://www.facebook.com/fossasia" target="_blank"></a></div>
             <div class="twitter2 icon"><a href="http://twitter.com/fossasia" target="_blank"></a></div>
@@ -541,18 +1305,129 @@
             <div class="mail icon"><a href="mailto:contact@fossasia.com" target="_blank"></a></div>
           </div>
         </div>
+        <div class="col-md-5 col-sm-6 blurb">
+          <h3>About FOSSASIA</h3>
+          <p>
+            FOSSASIA is an open source technology organization in Asia that aims to bring together an inspiring community across borders and ages to form a better future with Open Technologies and ICT.
+          </p>
+          <p id="last">
+            FOSSASIA is involved in Google Code-in, which serves as a great introduction to the world of open source collaboration and an excellent mediator to involve the next generation of digital collaborators.
+          </p>
+        </div>
+
       </div>
     </div>
+    <div id="newsletterDiv"><a class="close">&#10006;</a>
+      <form action="http://news.fossasia.org/subscribe" method="POST" accept-charset="utf-8">
+        <p>Why not signup for our Newsletter?</p>
+        <label for="name">Name:</label><br/>
+        <input type="text" name="name" id="name" required class="nws_box"/><br/>
+        <label for="email">Email:</label><br/>
+        <input type="email" name="email" id="email" required class="nws_box"/><br/>
+        <input type="hidden" name="list" value="A8fchTRvBw2wap1ojIfjyQ"/>
+        <input type="submit" name="submit" id="submit" value="Subscribe" class="nws_sub"/>
+      </form>
+    </div>
+      <br>
+      <div>
+        <p class="text-center col-xs-12">&copy; Copyright 2009-2016 FOSSASIA</p>
+      </div>
   </footer>
-  <script src="js/index.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
-  <script src="https://apis.google.com/js/platform.js" async defer></script>
-  <script src="js/scroll.js"></script>
-  <script src="js/classie.js"></script>
-  <script type="text/javascript" src="js/modernizr.min.js"></script>
-  <script src="js/photostack.js"></script>
-  <script type="text/javascript">
-  new Photostack(document.getElementById('photostack-1'));
-  </script>
 </body>
+<!-- CSS is put after HTML to improve page speeds -->
+  <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+  <link rel="stylesheet" type="text/css" href="stylesheets/ss.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/bootstrap.min.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/scroll.css" media="screen">
+  <link rel="stylesheet" type="text/css" href="stylesheets/hover.css" media="screen">
+  <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/component.css">
+  <link rel="stylesheet" type="text/css" href="stylesheets/loklak.css">
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Montserrat:400,700'>
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic'>
+  <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Roboto+Slab:400,700'>
+<!-- Javascript put atlast to improve speed -->
+  <script async src="js/jquery.js"></script>
+  <script async src="js/blogData.js"></script>
+  <script async src="js/index.js"></script>
+  <script async src="js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script async src="js/saSlider.js"></script>
+  <script async src="https://apis.google.com/js/platform.js" async defer></script>
+  <script async src="js/scroll.js"></script>
+  <script async src="js/classie.js"></script>
+  <script async type="text/javascript" src="js/modernizr.min.js"></script>
+  <script async src="js/photostack.js"></script>
+  <script async src="js/angular-1.0.0rc4.min.js"></script>
+  <script async src="js/angular-resource-1.0.0rc4.min.js"></script>
+  <script async type="text/javascript">
+  angular.module('Twitter', ['ngResource']);
+  function TwitterCtrl($scope, $resource) {
+      $scope.twitter = $resource('http://loklak.org/api/:action',
+          {action:'search.json', q:'angularjs', callback:'JSON_CALLBACK', count:10},
+          {get:{method:'JSONP'}});
+
+      $scope.doSearch = function () {
+          $("#spinner").show();
+          $scope.twitterResult = $scope.twitter.get({q:$scope.searchTerm},function(){
+            $("#spinner").hide();
+          });
+          //
+      };
+  }
+  new Photostack(document.getElementById('photostack-1'));
+        $.getJSON(
+			"https://api.github.com/repos/fossasia/gci15.fossasia.org/issues?labels=feature",
+			function(){
+				console.log("success");
+			}
+		)
+		.done(function(data){
+			if(data==""||!data||data==0||data=="undefined"){
+				document.getElementById("contentem").innerHTML="<li class='mi'>Sorry there are no issues labeled feature currently opened at gci15.fossasia.org</li>";
+			}
+			else{
+			  $.each(data, function(i, item) {
+				//List of Content
+				var tag;
+				$.each(item["labels"], function(i, label) {
+					if (label["name"] != "feature") {
+						tag = label["name"];
+					}
+				});
+				if ($("#" + tag).length <= 0) {
+					var html = "<li class='tags'>" + tag + "<ul id='" + tag + "'></ul></li>";
+					$('#table').append(html);
+				}
+				var a = $("<a>", {href: "#" + item["id"]});
+				a.html(item["title"] + "<br>");
+				var li = $("<li>");
+				li.html(a);
+				$('#' + tag).append(li);
+				//Content Description
+				var div = $("<div>", {id: item["id"]});
+				var h4 = $("<h4>");
+				h4.html(item["title"]);
+				var bes = $("<input>",{type:"button",onClick:"location.href='"+item["html_url"]+"'",value:"Read more on Github",id:"issuebut"});
+				div.html(h4);
+				div.append(bes);
+				$('#contentres').append(div);
+		      });
+			}
+
+		})
+		.fail(function(){
+			console.log("fail");
+		})
+   $('#myonoffswitch').on('touchstart click', function(){
+     var myElement = document.querySelector("#lightsout");
+     if(!document.getElementById("myonoffswitch").checked){
+       myElement.style.backgroundColor = "#515100";
+     }
+     else{
+       myElement.style.backgroundColor = "#cccc00";
+     }
+   });
+   </script>
 </html>
